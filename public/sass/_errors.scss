@@ -1,0 +1,21 @@
+.container .errors{
+  height: 100%;
+
+  &__cancel{
+    width: 100px;
+    height: 100px;
+    color: white;
+    border-radius: 50%;
+    background: red;
+    font-size: 6rem;
+  }
+  *{
+    margin: 2% 0;
+  }
+  h1{
+    color: $primaryDark;
+  }
+  p{
+    font-size: 2rem;
+  }
+}

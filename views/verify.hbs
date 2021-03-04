@@ -1,0 +1,21 @@
+<div class="verify flex flex-col jc-c al-c">
+  <form class="form flex flex-col" method="POST" action="/api/verify">
+    <p>Hi{{#if name}} {{{name}}}{{else}} Champ{{/if}}, {{#if message}} {{message}} Please check/re-enter and try again.{{/if}}
+      {{#if name}} <span>We've sent a confirmation code to your email. Please enter it below to confirm your subscription.</span>{{else}} Please follow the due process!{{/if}}</p>
+    <div class="numbers flex jc-c al-c">
+      <input type="text" name="n_one" required maxlength="1">
+      <input type="text" name="n_two" required maxlength="1">
+      <input type="text" name="n_three" required maxlength="1">
+      <input type="text" name="n_four" required maxlength="1">
+      <input type="text" name="n_five" required maxlength="1">
+    </div>
+    <input type="email" name="email" style="display: none" value="{{{email}}}">
+    <div class="flex jc-c">
+      {{#if name}}
+      <button class="btn btn-primary" type="submit" id="subscribe-btn" >Verify</button>
+      {{else}}
+      <a href="/api/subscribe"><button class="btn btn-primary">Subscribe</button></a>
+      {{/if}}
+    </div>
+  </form>
+</div>

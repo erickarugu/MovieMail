@@ -12,9 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 // load config
-dotenv.config({
-  path: "./config/config.env",
-});
+dotenv.config();
 
 // connect to db
 connectDB();
@@ -41,7 +39,7 @@ app.set("view engine", ".hbs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api', usersRouter);
 
 
 const PORT = process.env.PORT || 3000;

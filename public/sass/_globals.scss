@@ -40,11 +40,14 @@ input {
 }
 input,
 textarea {
+  color: $primaryGreen;
   margin: 0;
-  background: transparent;
+  padding-left: 5px;
+  background: white;
   border: 0.0625rem solid $primaryGreen;
   border-radius: 0.3125rem;
   transition: all 30ms ease-in-out;
+  font-size: 1.25rem;
 }
 textarea {
   resize: none;
@@ -72,7 +75,8 @@ ul {
   padding-inline-start: 0;
 }
 h1 {
-  color: $primaryGreen;
+  color: white;
+  font-size: 4rem;
 }
 
 .img {
@@ -80,6 +84,8 @@ h1 {
   height: auto;
 }
 body {
+  display: flex;
+  justify-content: center;
   position: relative;
   min-height: 100vh;
   font-size: 1.125rem;
@@ -87,10 +93,14 @@ body {
   font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   line-height: 1.3;
   margin-top: 3.25rem;
-  background: $primaryGray;
   transition: all 300ms ease-in-out;
   overflow: hidden;
   scroll-behavior: smooth;
+  background-image: url(https://i.redd.it/r5v8y6nkxte21.jpg);
+  background-color: rgba($color: $primaryDark, $alpha: 1);
+  background-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
 
   &::-webkit-scrollbar {
     width: 0.4rem; /* width of the entire scrollbar */
@@ -102,5 +112,99 @@ body {
     background-color: $primaryDark; /* color of the scroll thumb */
     border-radius: 1.25rem; /* roundness of the scroll thumb */
     border: 0.0625rem solid $primaryGreen; /* creates padding around scroll thumb */
+  }
+}
+// flexbox
+.flex {
+  display: flex;
+  &.flex-col {
+    flex-direction: column;
+  }
+  &.flex-row {
+    flex-direction: row;
+  }
+  &.flex-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &.jc-c {
+    justify-content: center;
+  }
+  &.jc-sa {
+    justify-content: space-around;
+  }
+  &.jc-sb {
+    justify-content: space-between;
+  }
+  &.jc-se {
+    justify-content: space-evenly;
+  }
+  &.jc-end {
+    justify-content: flex-end;
+  }
+  &.al-c {
+    align-items: center;
+  }
+  .al-sf-end {
+    align-self: flex-end;
+  }
+  .al-sf-start {
+    align-self: flex-start;
+  }
+  .flex-1 {
+    flex: 1;
+  }
+}
+// other common
+.container {
+  width: 96%;
+  height: 90vh;
+  max-height: 45rem; //720px
+  max-width: 63.75rem; //1020px
+  margin: 2%;
+  background: $primaryGray;
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
+  border-radius: 0.3125rem; //5px
+}
+// Button
+.btn {
+  width: 10rem;
+  height: 3rem;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
+  transition: all 300ms ease-in-out;
+  border: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: $primaryGreen;
+  }
+  @include breakpoint-down(xsmall) {
+    width: 7.875rem;
+    height: 3rem;
+  }
+
+  &.btn-primary {
+    background: green;
+    border: 0.1rem solid $primaryGreen;
+    border-radius: 0.125rem;
+    color: white;
+
+    &:hover {
+      color: $primaryGray;
+      box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
+      background: lighten(green, 10%);
+    }
+  }
+  &.btn-secondary {
+    background: $primaryGray;
+    border: 0.1rem solid $primaryGreen;
+
+    &:hover {
+      box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.5);
+      background: lighten(blue, 80%);
+    }
   }
 }

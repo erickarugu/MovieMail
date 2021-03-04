@@ -1,0 +1,64 @@
+.container .unsubscribe {
+  height: 100%;
+  @include breakpoint-down(small) {
+    flex-direction: column;
+
+    h1{
+      font-size: 2rem;
+    }
+  }
+  &__banner {
+    padding: 10px;
+    background-image: url(https://www.indiewire.com/wp-content/uploads/2019/12/JokerPoster1200_5ca3c435318d42.29270548.jpg?w=800);
+    background-color: rgba($color: green, $alpha: .7);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden;
+
+    p{
+      font-size: 1.7rem;
+    }
+  }
+  &__form {
+    padding: 0.625rem;
+    h3{
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    // border: 1px solid red;
+    .form {
+      margin-top: 40%;
+      @include breakpoint-down(small) {
+        margin-top: 10%;
+      }
+      // border: 1px solid red;
+      .form-input {
+        margin: 20px;
+      }
+      .btn-danger {
+        background: red;
+        color: white;
+        width: 12rem;
+        margin: 5% 28%;
+  
+        &:hover{
+          background: lighten(red, 10%);
+        }
+      }
+    }
+    hr{
+      margin: 10% auto;
+      width: 100%;
+      border: 1px solid rgba($primaryDark, .2);
+    }
+    &__message{
+      width: 90%;
+      text-align: center;
+    }
+  }
+}
