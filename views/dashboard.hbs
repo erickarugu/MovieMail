@@ -1,0 +1,25 @@
+<div class="dashboard flex al-c flex-col">
+  {{#if message}}
+  <div class="dashboard__message-banner jc-c al-c flex">
+    <p>{{message}}</p>
+  </div>
+  {{/if}}
+  <h3>Today's Movie Pick</h3>
+  <div class="dashboard__card flex">
+    <div class="dashboard__card__image" style="background-image: url({{poster}});"></div>
+    <div class="dashboard__card__content flex flex-col jc-sa">
+      <h3>{{title}}</h3>
+      <p>{{overview}}</p>
+      <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i> ({{vote_average}})</p>
+    </div>
+  </div>
+  <div class="dashboard__btn-class flex jc-se al-c">
+    <a href="/subscribe"><button class="btn btn-primary">Subscribe</button></a>
+    <a href="/unsubscribe"><button class="btn btn-danger">Unsubscribe</button></a>
+  </div>
+  <hr>
+  <div class="dashboard__message flex flex-col jc-c">
+    <p>To receive the suggested movie in your mail box, please subscribe above. You can cancel at any time and your data will be deleted PERMANENTLY!</p>
+    <p><u>Merci Beaucoup!</u></p>
+  </div>
+</div>

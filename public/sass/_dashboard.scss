@@ -1,0 +1,83 @@
+.container .dashboard {
+  &__message-banner{
+    position: absolute;
+    background: rgb(2, 2, 247);
+    padding: 0 30px;
+    height: 80px;
+    right: 15px;
+    top: 5px;
+    font-size: 1.6rem;
+    color: white;
+    font-weight: lighter;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.5);
+  }
+  height: 100%;
+
+  & > h3 {
+    font-size: 2rem;
+    margin-top: 5%;
+  }
+  &__card {
+    background-color: white;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.5);
+    min-height: 250px;
+    width: 90%;
+    margin: 4% 0;
+
+    @include breakpoint-down(small) {
+      flex-direction: column;
+
+      &__image{
+        width: 100% !important;
+        height: 200px;
+      }
+    }
+
+    &__image {
+      width: 500px;
+      height: 250px;
+      background-image: url(https://i.pinimg.com/originals/50/4b/7c/504b7c5ef4b499041d013520d1ef2561.jpg);
+      background-color: rgba($color: $primaryDark, $alpha: 0.5);
+      background-blend-mode: overlay;
+      background-position: center;
+      background-size: cover;
+    }
+    &__content{
+      padding: 10px;
+
+      p .fa-star{
+        color: rgb(241, 227, 26);
+      }
+    }
+  }
+  &__btn-class {
+    width: 100%;
+
+    @include breakpoint-down(small) {
+      flex-direction: column;
+      .btn{
+        margin: 2% 0;
+      }
+    }
+    .btn{
+      width: 12rem;
+    }
+    .btn-danger {
+      background: red;
+      color: white;
+
+      &:hover{
+        background: lighten(red, 10%);
+      }
+    }
+  }
+  hr{
+    margin: 4% auto;
+    width: 100%;
+    border: 1px solid rgba($primaryDark, .2);
+  }
+  &__message{
+    text-align: center;
+    width: 90%;
+  }
+}

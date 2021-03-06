@@ -5,11 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MovieMailer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <div class="container">
     {{{body}}}
   </div>
+  <script>
+    const subscribeBtn = document.getElementById("subscribe-btn");
+    if(subscribeBtn !== null){
+      subscribeBtn.addEventListener("click", e => {
+        subscribeBtn.disabled = true;
+        subscribeBtn.innerHTML = `<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>`
+      })
+    }
+  </script>
+  <script src="/js/script.js"></script>
 </body>
 </html>

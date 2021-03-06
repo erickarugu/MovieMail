@@ -1,1 +1,20 @@
-<p>Hello</p>
+<div class="register flex flex-row">
+  <div class="register__banner flex flex-col flex-1 jc-c al-c">
+    <h1>Movie Mailer</h1>
+    <p>Please enter your name, your email and click subscribe to receive a movie recommendation every morning at 0900 (GMT)</p>
+  </div>
+  <div class="register__form flex-1">
+    <form class="form"action="/subscribe" method="POST" >
+        <h3>Welcome to Movie Mailer</h3>
+        <div class="form-input flex flex-col">
+            <label for="name">Name(s):</label>
+            <input name="name" type="text" id="name" minlength="3" required />
+        </div>
+        <div class="form-input flex flex-col">
+          <label for="email">Email:</label>
+          <input name="email" type="email" id="email" required />
+        </div>
+        <button class="btn btn-primary" type="submit" id="subscribe-btn">Subscribe</button>
+      </form>
+  </div>
+</div>

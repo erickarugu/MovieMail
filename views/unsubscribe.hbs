@@ -1,0 +1,21 @@
+<div class="unsubscribe flex flex-row">
+  <div class="unsubscribe__banner flex flex-col flex-1 jc-c al-c">
+    <h1>Movie Mailer</h1>
+    <p>Please enter your email in the form and hit 'Unsubscribe'. NB: This cannot be undone.</p>
+  </div>
+  <div class="unsubscribe__form flex-1">
+    <form class="form"action="/unsubscribe" method="POST" >
+        <h3>We're sad to see you leave</h3>
+        <div class="form-input flex flex-col">
+          <label for="email">Email:</label>
+          <input name="email" type="email" id="email" required />
+        </div>
+        <button class="btn btn-danger" type="submit" id="subscribe-btn">Unsubscribe</button>
+      </form>
+      <hr>
+      <div class="unsubscribe__form__message">
+        <p>I hope we will see each other again elsewhere.</p>
+        <p><u>Merci et Au Revoir!</u></p>
+      </div>
+  </div>
+</div>
