@@ -6,16 +6,16 @@
   {{/if}}
   <h3>Today's Movie Pick</h3>
   <div class="dashboard__card flex">
-    <div class="dashboard__card__image"></div>
+    <div class="dashboard__card__image" style="background-image: url({{poster}});"></div>
     <div class="dashboard__card__content flex flex-col jc-sa">
-      <h3>Man With a Plan SN1</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio non vel adipisci animi nisi, quasi laboriosam obcaecati minus quae expedita.</p>
-      <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i></p>
+      <h3>{{title}}</h3>
+      <p>{{overview}}</p>
+      <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i> ({{vote_average}})</p>
     </div>
   </div>
   <div class="dashboard__btn-class flex jc-se al-c">
-    <a href="/api/subscribe"><button class="btn btn-primary">Subscribe</button></a>
-    <a href="/api/unsubscribe"><button class="btn btn-danger">Unsubscribe</button></a>
+    <a href="/subscribe"><button class="btn btn-primary">Subscribe</button></a>
+    <a href="/unsubscribe"><button class="btn btn-danger">Unsubscribe</button></a>
   </div>
   <hr>
   <div class="dashboard__message flex flex-col jc-c">

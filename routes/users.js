@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-const { sendMail } = require("../services/mail");
+const Movie = require("../models/Movie");
+const { sendCode } = require("../services/sendCode");
+const {sendMovie} = require("../services/sendMovie");
 
 // @desc      Process add form
 // @route     GET /stories
@@ -12,7 +14,7 @@ router.post("/subscribe", async (req, res) => {
     verification_code,
   })
     .then(async (user) => {
-      await sendMail(user.email, verification_code)
+      await sendCode(user.email, verification_code)
         .then((e) => {
           return res.render("verify", {
             email: user.email,
@@ -34,11 +36,7 @@ router.post("/unsubscribe", async (req, res) => {
     email: req.body.email,
   })
     .then(async (response) => {
-      message = "Email not found!"
-      if(response !== null) message = "Unsubscribed successfully!"
-      return res.render("dashboard", {
-        message
-      });
+      return res.redirect("/dashboard");
     })
     .catch((err) => {
       return res.render("error/500");
@@ -63,8 +61,14 @@ router.post("/verify", async (req, res) => {
             is_verified: true,
           }
         )
-          .then((e) => {
-            return res.render("success");
+          .then(async (e) => {
+            await Movie.find()
+              .limit(1)
+              .sort({ $natural: -1 })
+              .then(async (movie) => {
+                sendMovie(user[0].email, movie[0]);
+                return res.render("success");
+              });
           })
           .catch((err) => {
             return res.render("verify", {
@@ -83,8 +87,23 @@ router.post("/verify", async (req, res) => {
 });
 // @desc      Process add form
 // @route     GET /stories
+router.get("/", async (req, res) => {
+  return res.redirect("/dashboard")
+})
+// @desc      Process add form
+// @route     GET /stories
 router.get("/dashboard", async (req, res) => {
-  return res.render("dashboard");
+  await Movie.find()
+    .limit(1)
+    .sort({ $natural: -1 })
+    .then((movie) => {
+      return res.render("dashboard", {
+        title: movie[0].title,
+        poster: movie[0].poster_path,
+        overview: movie[0].overview,
+        vote_average: movie[0].vote_average,
+      });
+    });
 });
 // @desc      Process add form
 // @route     GET /stories
