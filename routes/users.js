@@ -9,6 +9,7 @@ const {sendMovie} = require("../services/sendMovie");
 // @route     GET /stories
 router.post("/subscribe", async (req, res) => {
   let verification_code = (Math.floor(Math.random() * 99999) + 10000).toString();
+  console.log(req.body, verification_code)
   await User.create({
     ...req.body,
     verification_code,
