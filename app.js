@@ -1,9 +1,9 @@
-var express = require("express");
-var path = require("path");
+const express = require("express");
+const path = require("path");
 const cron = require("node-cron");
 const dotenv = require("dotenv");
-var cookieParser = require("cookie-parser");
-var morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+const morgan = require("morgan");
 const exphbs = require("express-handlebars");
 const request = require("request");
 
@@ -11,8 +11,8 @@ const connectDB = require("./config/db");
 const User = require("./models/User");
 const Movie = require("./models/Movie");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 const { sendMovie } = require("./services/sendMovie");
 const nodemailer = require("nodemailer");
 
@@ -22,7 +22,7 @@ const { MOVIE_API_KEY } = process.env;
 // connect to db
 connectDB();
 
-var app = express();
+const app = express();
 
 // logging
 if (process.env.NODE_ENV === "development") {
